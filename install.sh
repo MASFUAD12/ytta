@@ -16,5 +16,5 @@ apt upgrade -y
 apt install -y bzip2 gzip coreutils screen curl unzip 
 apt install lolcat -y 
 apt install neofetch -y
-wget https://raw.githubusercontent.com/rizkyckj/v1/main/main.sh && chmod +x main.sh && ./main.sh
+wget https://raw.githubusercontent.com/MASFUAD12/ytta/main/main.sh && chmod +x main.sh && ./main.sh
 rm -f /root/main.sh
