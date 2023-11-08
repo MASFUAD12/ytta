@@ -27,7 +27,7 @@ clear;clear;clear
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo -e "  Welcome To Project Script Installer ${YELLOW}(${NC}${green} Stable Edition ${NC}${YELLOW})${NC}"
 echo -e "     This Will Quick Setup VPN Server On Your Server"
-echo -e "         Auther : ${green} MAS FUAD ${NC} ${green} RVPN ${NC}"
+echo -e "         Auther : ${green} MAS FUAD ${NC}"
 echo -e "       Â© Recode By MAS FUAD Project ${YELLOW}(${NC} 2023 ${YELLOW})${NC}"
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo ""
@@ -36,7 +36,7 @@ sleep 5
 ipsaya=$(wget -qO- ipinfo.io/ip)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
-data_ip="https://raw.githubusercontent.com/MASFUAD12/izin/main/izin?token=GHSAT0AAAAAACI2DVLYDHRDB7BFPZEFGJMKZKLOX4Q"
+data_ip="https://raw.githubusercontent.com/MASFUAD12/ytta/main/list"
 checking_sc() {
   useexp=$(wget -qO- $data_ip | grep $ipsaya | awk '{print $3}')
   if [[ $date_list < $useexp ]]; then
@@ -50,8 +50,8 @@ checking_sc() {
     echo -e "   \033[0;33mYour VPS${NC} $ipsaya \033[0;33mHas been Banned${NC}"
     echo -e "     \033[0;33mBuy access permissions for scripts${NC}"
     echo -e "             \033[0;33mContact Admin :${NC}"
-    echo -e "      \033[0;36mTelegram${NC} t.me/RVPN STORES"
-    echo -e "      ${GREEN}WhatsApp${NC} wa.me/6283160098834"
+    echo -e "      \033[0;36mTelegram${NC} t.me/Fuad_HNF"
+    echo -e "      ${GREEN}WhatsApp${NC} wa.me/6285727706614"
     echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
     exit
   fi
@@ -101,9 +101,9 @@ NC='\e[0m'
 clear
 # USERNAME
 rm -f /usr/bin/user
-username=$(curl https://raw.githubusercontent.com/MASFUAD12/izin/main/izin?token=GHSAT0AAAAAACI2DVLYDHRDB7BFPZEFGJMKZKLOX4Q | grep $MYIP | awk '{print $2}')
+username=$(curl https://raw.githubusercontent.com/MASFUAD12/ytta/main/list | grep $MYIP | awk '{print $2}')
 echo "$username" >/usr/bin/user
-expx=$(curl https://raw.githubusercontent.com/MASFUAD12/izin/main/izin?token=GHSAT0AAAAAACI2DVLYDHRDB7BFPZEFGJMKZKLOX4Q | grep $MYIP | awk '{print $3}')
+expx=$(curl https://raw.githubusercontent.com/MASFUAD12/ytta/main/list | grep $MYIP | awk '{print $3}')
 echo "$expx" >/usr/bin/e
 # DETAIL ORDER
 username=$(cat /usr/bin/user)
@@ -127,7 +127,7 @@ mai="datediff "$Exp" "$DATE""
 Info="(${green}Active${NC})"
 Error="(${RED}Expired${NC})"
 today=`date -d "0 days" +"%Y-%m-%d"`
-Exp1=$(curl https://raw.githubusercontent.com/MASFUAD12/izin/main/izin?token=GHSAT0AAAAAACI2DVLYDHRDB7BFPZEFGJMKZKLOX4Q | grep $MYIP | awk '{print $4}')
+Exp1=$(curl https://raw.githubusercontent.com/MASFUAD12/ytta/main/list | grep $MYIP | awk '{print $4}')
 if [[ $today < $Exp1 ]]; then
 sts="${Info}"
 else
