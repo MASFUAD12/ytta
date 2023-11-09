@@ -3,7 +3,7 @@ clear
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 ###########- COLOR CODE -##############
-REPO="https://raw.githubusercontent.com/MASFUAD12/scupdate/main/"
+REPO="https://raw.githubusercontent.com/MASFUAD12/ytta/main/"
 CYAN='\033[0;96m'        # Cyan
 
 BG="\E[44;1;39m"
