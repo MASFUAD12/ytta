@@ -61,7 +61,7 @@ sleep 3
 echo -e " [INFO] Downloading Update File"
 sleep 2
 rm -rf /tmp/menu
-wget -O /tmp/menu-master.zip "${REPO}config/menu.zip" >/dev/null 2>&1
+wget -O /tmp/menu-master.zip "${REPO}menu/menu.zip" >/dev/null 2>&1
     mkdir /tmp/menu
     7z e  /tmp/menu-master.zip -o/tmp/menu/ >/dev/null 2>&1
     chmod +x /tmp/menu/*
