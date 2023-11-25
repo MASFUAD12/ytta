@@ -27,35 +27,12 @@ clear;clear;clear
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo -e "  Welcome To Project Script Installer ${YELLOW}(${NC}${green} Stable Edition ${NC}${YELLOW})${NC}"
 echo -e "     This Will Quick Setup VPN Server On Your Server"
-echo -e "         Auther : ${green} MAS FUAD ${NC}"
-echo -e "       Â© Recode By MAS FUAD Project ${YELLOW}(${NC} 2023 ${YELLOW})${NC}"
+echo -e "         Auther : ${green} MAS FUAD ${NC} ${YELLOW}(${NC}${green} t.me/Mas_Fuad ${NC}${YELLOW})${NC}"
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo ""
 sleep 5
 ###### IZIN SC 
-ipsaya=$(wget -qO- ipinfo.io/ip)
-data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-date_list=$(date +"%Y-%m-%d" -d "$data_server")
-data_ip="https://raw.githubusercontent.com/MASFUAD12/list/main/ip"
-checking_sc() {
-  useexp=$(wget -qO- $data_ip | grep $ipsaya | awk '{print $3}')
-  if [[ $date_list < $useexp ]]; then
-    echo -ne
-  else
-    echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
-    echo -e "\033[42m          404 NOT FOUND AUTOSCRIPT          \033[0m"
-    echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
-    echo -e ""
-    echo -e "            ${RED}PERMISSION DENIED !${NC}"
-    echo -e "   \033[0;33mYour VPS${NC} $ipsaya \033[0;33mHas been Banned${NC}"
-    echo -e "     \033[0;33mBuy access permissions for scripts${NC}"
-    echo -e "             \033[0;33mContact Admin :${NC}"
-    echo -e "      \033[0;36mTelegram${NC} t.me/Fuad_HNF"
-    echo -e "      ${GREEN}WhatsApp${NC} wa.me/6285727706614"
-    echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
-    exit
-  fi
-}
+
 checking_sc
 # // Checking Os Architecture
 if [[ $( uname -m | awk '{print $1}' ) == "x86_64" ]]; then
@@ -76,11 +53,11 @@ else
 fi
 
 # // IP Address Validating
-if [[ $IP == "" ]]; then
-    echo -e "${EROR} IP Address ( ${YELLOW}Not Detected${NC} )"
-else
-    echo -e "${OK} IP Address ( ${green}$IP${NC} )"
-fi
+#if [[ $IP == "" ]]; then
+#    echo -e "${EROR} IP Address ( ${YELLOW}Not Detected${NC} )"
+#else
+#    echo -e "${OK} IP Address ( ${green}$IP${NC} )"
+#fi
 
 # // Validate Successfull
 echo ""
@@ -100,39 +77,7 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 # USERNAME
-rm -f /usr/bin/user
-username=$(curl https://raw.githubusercontent.com/MASFUAD12/list/main/ip | grep $MYIP | awk '{print $2}')
-echo "$username" >/usr/bin/user
-expx=$(curl https://raw.githubusercontent.com/MASFUAD12/list/main/ip | grep $MYIP | awk '{print $3}')
-echo "$expx" >/usr/bin/e
-# DETAIL ORDER
-username=$(cat /usr/bin/user)
-oid=$(cat /usr/bin/ver)
-exp=$(cat /usr/bin/e)
-clear
-# CERTIFICATE STATUS
-d1=$(date -d "$valid" +%s)
-d2=$(date -d "$today" +%s)
-certifacate=$(((d1 - d2) / 86400))
-# VPS Information
-DATE=$(date +'%Y-%m-%d')
-datediff() {
-    d1=$(date -d "$1" +%s)
-    d2=$(date -d "$2" +%s)
-    echo -e "$COLOR1 $NC Expiry In   : $(( (d1 - d2) / 86400 )) Days"
-}
-mai="datediff "$Exp" "$DATE""
 
-# Status Expired Active
-Info="(${green}Active${NC})"
-Error="(${RED}Expired${NC})"
-today=`date -d "0 days" +"%Y-%m-%d"`
-Exp1=$(curl https://raw.githubusercontent.com/MASFUAD12/list/main/ip | grep $MYIP | awk '{print $4}')
-if [[ $today < $Exp1 ]]; then
-sts="${Info}"
-else
-sts="${Error}"
-fi
 echo -e "\e[32mloading...\e[0m"
 clear
 # REPO    
@@ -429,7 +374,7 @@ clear
     chown www-data.www-data $domainSock_dir
     
     # / / Ambil Xray Core Version Terbaru
-latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
+latest_version="$(curl -s https://api.github.com/repos/dharak36/Xray-core/releases  | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version $latest_version
  
     # // Ambil Config Server
