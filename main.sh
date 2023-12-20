@@ -122,6 +122,39 @@ function is_root() {
 
 }
 
+clear
+# Fungsi input domain
+function pasang_domain() {
+echo -e ""
+clear
+echo -e "   .----------------------------------."
+echo -e "   |\e[1;32m Input Your Domain\e[0m|"
+echo -e "   '----------------------------------'"
+#echo -e "   \e[1;32m1)\e[0m Menggunakan Domain Sendiri"
+#echo -e "   \e[1;32m2)\e[0m Menggunakan Domain Script"
+#echo -e "   ------------------------------------"
+#read -p "   Piih Angka dari [ 1 - 2 ] : " host
+echo ""
+#if [[ $host == "1" ]]; then
+echo -e "   \e[1;32mMasukan domain mu ! $NC"
+read -p "   Subdomain: " host1
+echo "IP=" >> /var/lib/kyt/ipvps.conf
+echo $host1 > /etc/xray/domain
+echo $host1 > /root/domain
+echo ""
+#elif [[ $host == "2" ]]; then
+#install cf
+#wget ${REPO}ssh/cf.sh && chmod +x cf.sh && ./cf.sh
+#rm -f /root/cf.sh
+#clear
+#else
+#print_install "Random Subdomain/Domain is Used"
+#wget ${REPO}cf.sh && chmod +x cf.sh && ./cf.sh
+#rm -f /root/cf.sh
+#clear
+#    fi
+}
+
 # Buat direktori xray
 print_install "Membuat direktori xray"
     mkdir -p /etc/xray
@@ -229,38 +262,6 @@ function base_package() {
     print_success "Packet Yang Dibutuhkan"
     
 }
-clear
-# Fungsi input domain
-function pasang_domain() {
-echo -e ""
-clear
-echo -e "   .----------------------------------."
-echo -e "   |\e[1;32mPlease Select a Domain Type Below \e[0m|"
-echo -e "   '----------------------------------'"
-echo -e "   \e[1;32m1)\e[0m Menggunakan Domain Sendiri"
-echo -e "   \e[1;32m2)\e[0m Menggunakan Domain Script"
-echo -e "   ------------------------------------"
-read -p "   Piih Angka dari [ 1 - 2 ] : " host
-echo ""
-if [[ $host == "1" ]]; then
-echo -e "   \e[1;32mMasukan domain mu ! $NC"
-read -p "   Subdomain: " host1
-echo "IP=" >> /var/lib/kyt/ipvps.conf
-echo $host1 > /etc/xray/domain
-echo $host1 > /root/domain
-echo ""
-elif [[ $host == "2" ]]; then
-#install cf
-wget ${REPO}ssh/cf.sh && chmod +x cf.sh && ./cf.sh
-rm -f /root/cf.sh
-clear
-else
-print_install "Random Subdomain/Domain is Used"
-wget ${REPO}cf.sh && chmod +x cf.sh && ./cf.sh
-rm -f /root/cf.sh
-clear
-    fi
-}
 
 clear
 #GANTI PASSWORD DEFAULT
@@ -275,29 +276,6 @@ function password_default() {
     useradd -r -d /home/script -s /bin/bash -M $Username > /dev/null 2>&1
     echo -e "$Password\n$Password\n"|passwd $Username > /dev/null 2>&1
     usermod -aG sudo $Username > /dev/null 2>&1
-
-ISP=$(wget -qO- ipinfo.io/org)
-TIMES=$(date +'%Y-%m-%d')
-URL=""
-TIMEZONE=$(printf '%(%H:%M:%S)T')
-TEXT="
-<code>────────────────────</code>
-<b>⚠️AUTOSCRIPT PREMIUM⚠️</b>
-<code>────────────────────</code>
-Owner  : <code>$username</code>
-Domain : <code>$(cat /etc/xray/domain)</code>
-Date   : <code>$TIMES</code>
-Time   : <code>$TIMEZONE</code>
-Isp    : <code>$ISP</code>
-Ip Vps : <code>$MYIP</code>
-Exp Sc : <code>$exp</code>
-Ram    : <code>$Ram_Total MB</code>
-Linux  : <code>$OS_Name</code>
-<code>────────────────────</code>
-<i>Nontifikasi Otomatis Dari Github</i>
-'&reply_markup={"inline_keyboard":[[{"text":"⚡ᴏʀᴅᴇʀ⚡","url":"https://t.me/fdlyvpn_ID"}]]}'
-"
-   curl -s --max-time 10 -d "chat_id=-1001899398362&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 }
 
 clear
@@ -340,10 +318,10 @@ rm -rf /etc/vmess/.vmess.db
     mkdir -p /usr/bin/xray/
     mkdir -p /var/log/xray/
     mkdir -p /var/www/html
-    mkdir -p /etc/wokszxd/limit/vmess/ip
-    mkdir -p /etc/wokszxd/limit/vless/ip
-    mkdir -p /etc/wokszxd/limit/trojan/ip
-    mkdir -p /etc/wokszxd/limit/ssh/ip
+    mkdir -p /etc/kyt/limit/vmess/ip
+    mkdir -p /etc/kyt/limit/vless/ip
+    mkdir -p /etc/kyt/limit/trojan/ip
+    mkdir -p /etc/kyt/limit/ssh/ip
     mkdir -p /etc/limit/vmess
     mkdir -p /etc/limit/vless
     mkdir -p /etc/limit/trojan
